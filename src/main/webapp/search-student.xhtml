@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Search Student Details</title>
+    </h:head>
+    <h:body>
+        
+        <h:form> 
+            <h:commandLink value="Home" action="index" immediate="true"/>
+            <h:outputText value="&#160;&#160;&#160;"/> 
+            <h:commandLink value="Add Student" action="insert-student" immediate="true"/> 
+            <h:outputText value="&#160;&#160;&#160;"/> 
+            <h:commandLink value="View Student" action="view-student" immediate="true"/>
+            <h:outputText value="&#160;&#160;&#160;"/>            
+            <h:commandLink value="Update Student" action="search-student" immediate="true"/> 
+            <h:outputText value="&#160;&#160;&#160;"/><br/>
+            
+            
+        <center> 
+        <h:message for="#{null}" errorStyle="color : red;" infoStyle="color : green"/><br/>
+ 
+        <h3 >Searching Student</h3>
+        <h:panelGrid columns="3">  
+            
+        <h:outputLabel for="fname" value="First Name:" /> 
+        <h:inputText id="fname"  value="#{studentManagedBean.firstname}" required="true" requiredMessage="Validation Error: Value is required!"/>    
+        <p:message for="fname"></p:message>
+           
+        <h:outputLabel for="grade" value="Grade:"/>
+        <h:selectOneMenu id="grade" value="#{studentManagedBean.grade}">
+            <f:selectItem itemLabel="1" itemValue="1" />
+            <f:selectItem itemLabel="2" itemValue="2" />
+            <f:selectItem itemLabel="3" itemValue="3" />
+            <f:selectItem itemLabel="4" itemValue="4" />
+            <f:selectItem itemLabel="5" itemValue="5" />
+            <f:selectItem itemLabel="6" itemValue="6" />
+            <f:selectItem itemLabel="7" itemValue="7" />
+            <f:selectItem itemLabel="8" itemValue="8" />
+            <f:selectItem itemLabel="9" itemValue="9" />
+            <f:selectItem itemLabel="10" itemValue="10" />
+            <f:selectItem itemLabel="11" itemValue="11" />
+            <f:selectItem itemLabel="12" itemValue="12" />
+            <f:selectItem itemLabel="13" itemValue="13" />                        
+         </h:selectOneMenu>
+         <p:message for="grade"></p:message>
+         </h:panelGrid> 
+        <br/>
+         <h:commandButton id="cmdb" value="Search"  actionListener="#{studentManagedBean.searchStudent}" action="#{studentManagedBean.responsePage()}">                      
+             <f:setPropertyActionListener target="#{studentManagedBean.firstname}" value="#{fname}"/>
+             <f:setPropertyActionListener target="#{studentManagedBean.grade}" value="#{grade}"/>            
+       </h:commandButton>
+        <h:outputText value="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"/>
+       <h:commandButton value="Reset" type="reset"  /> 
+             
+    </center>
+    </h:form>            
+    
+    </h:body>
+</html>
+

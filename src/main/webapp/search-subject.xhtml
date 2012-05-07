@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form> 
+            <h:commandLink value="Home" action="index" immediate="true"/>
+            <h:outputText value="&#160;&#160;&#160;"/> 
+            <h:commandLink value="Add Subject" action="insert-subject" immediate="true"/> 
+            <h:outputText value="&#160;&#160;&#160;"/> 
+            <h:commandLink value="View Subject" action="view-subject" immediate="true"/>
+            <h:outputText value="&#160;&#160;&#160;"/>            
+            <h:commandLink value="Update Subject" action="search-subject" immediate="true"/> 
+            <h:outputText value="&#160;&#160;&#160;"/><br/>
+            
+            
+        <center> 
+        <h:message for="#{null}" errorStyle="color : red;" infoStyle="color : green"/><br/>
+ 
+        <h3 >Searching Student</h3>
+        <h:panelGrid columns="3">  
+            
+        <h:outputLabel for="subjectname" value="Subject Name:" /> 
+        <h:inputText id="subjectname"  value="#{subjectManagedBean.subjectname}" required="true" requiredMessage="Validation Error: Value is required!"/>    
+        <p:message for="subjectname"></p:message>
+        
+         </h:panelGrid> 
+        <br/>
+         <h:commandButton id="cmdb" value="Search"  actionListener="#{subjectManagedBean.searchSubject}" action="#{subjectManagedBean.responsePage()}">                      
+             <f:setPropertyActionListener target="#{subjectManagedBean.subjectname}" value="#{subjectname}"/>
+         
+       </h:commandButton>
+        <h:outputText value="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"/>
+       <h:commandButton value="Reset" type="reset"  /> 
+             
+    </center>
+    </h:form>      
+        
+        
+        
+    </h:body>
+</html>
+

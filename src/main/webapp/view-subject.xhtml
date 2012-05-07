@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Subject Details</title>
+    </h:head>
+    <h:body>
+        
+        <h:form>            
+        <h:commandLink value="Home" action="index" immediate="true"/>
+        <h:outputText value="&#160;&#160;&#160;"/>       
+        <h:commandLink value="Add Subject" action="insert-subject" immediate="true"/>
+        <h:outputText value="&#160;&#160;&#160;"/>   
+        <h:commandLink value="Search Subject" action="search-subject" immediate="true"/> 
+        <h:outputText value="&#160;&#160;&#160;"/>
+        <h:commandLink value="Update Subject" action="search-subject" immediate="true"/> 
+        <h:outputText value="&#160;&#160;&#160;"/><br/>
+        
+        <center>
+            
+        <h1> View Subject Details </h1><br/>
+
+        <p:dataTable id="dataTable" var="subject" value="#{subjectManagedBean.subjectList}">
+        <f:facet name="header">Subject Details</f:facet>
+
+            <p:column>
+                <f:facet name="header"><h:outputText value="Subject Id"/></f:facet>        
+                <h:commandLink value="#{subject.subjectid}" action="subject-response">
+                <f:setPropertyActionListener value="#{subject}" target="#{subjectManagedBean.searchedSubject}"/>
+                </h:commandLink>
+            </p:column>
+
+            <p:column >
+                <f:facet name="header"><h:outputText value="Subject Name"/></f:facet>
+                <h:outputText value="#{subject.subjectname}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header"><h:outputText value="Subject Teacher"/></f:facet>
+                <h:outputText value="#{subject.subjectteacher}"/>
+            </p:column>       
+          
+        </p:dataTable>
+        </center>
+    </h:form>
+    </h:body>
+</html>
+

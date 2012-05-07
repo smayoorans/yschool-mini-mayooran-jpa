@@ -1,0 +1,107 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Student View</title>
+    </h:head>
+    
+    <h:body>
+        <h:form>            
+        <h:commandLink value="Home" action="index" immediate="true"/>
+        <h:outputText value="&#160;&#160;&#160;"/>       
+        <h:commandLink value="Add Student" action="insert-student" immediate="true"/>
+        <h:outputText value="&#160;&#160;&#160;"/>   
+        <h:commandLink value="Search Student" action="search-student" immediate="true"/> 
+        <h:outputText value="&#160;&#160;&#160;"/>
+        <h:commandLink value="Update Student" action="search-student" immediate="true"/> 
+        <h:outputText value="&#160;&#160;&#160;"/><br/>
+        
+        <center>
+            
+        <h1> View Student Details </h1><br/>         
+        
+        <h:outputText value="Grade &#160;&#160;&#160;&#160;&#160;&#160; &#160;:"/>
+        <h:selectOneMenu id="grade" value="#{studentManagedBean.grade}"  >
+                    <f:selectItem itemValue="" itemLabel="Select One"/>
+                    <f:selectItem itemValue="1" itemLabel="1"/>
+                    <f:selectItem itemValue="2" itemLabel="2"/>
+                    <f:selectItem itemValue="3" itemLabel="3"/>
+                    <f:selectItem itemValue="4" itemLabel="4"/>
+                    <f:selectItem itemValue="5" itemLabel="5"/>
+                    <f:selectItem itemValue="6" itemLabel="6"/>
+                    <f:selectItem itemValue="7" itemLabel="7"/>
+                    <f:selectItem itemValue="8" itemLabel="8"/>
+                    <f:selectItem itemValue="9" itemLabel="9"/>
+                    <f:selectItem itemValue="10" itemLabel="10"/>
+                    <f:selectItem itemValue="11" itemLabel="11"/>
+                    <f:selectItem itemValue="12" itemLabel="12"/>
+                    <f:selectItem itemValue="13" itemLabel="13"/>
+                </h:selectOneMenu>        
+        <h:outputText value="&#160;"/>
+        
+        <h:outputText value="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"/> 
+        
+        <h:commandButton value="Search" actionListener="#{studentManagedBean.searchStudentX}" >
+            <f:setPropertyActionListener target="#{studentManagedBean.grade}" value="#{grade}"/> 
+        </h:commandButton>
+        
+        <h:outputText value="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"/> 
+            
+        
+        <h:commandButton value="View All" actionListener="#{studentManagedBean.searchStudentX}"> 
+            <f:setPropertyActionListener target="#{studentManagedBean.grade}" value="Select One"/> 
+        </h:commandButton>  
+        
+        <h:outputText value="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"/> 
+        
+        <h:commandButton value="Reset" type="reset"/>        
+                
+       <br/>      
+       <br/>          
+       <br/>         
+                
+               
+       <p:dataTable id="dataTable" var="student" value="#{studentManagedBean.searchStudentX}">
+        <f:facet name="header">Student Details</f:facet>
+
+            <p:column>
+                <f:facet name="header"><h:outputText value="Student Id"/></f:facet>        
+                <h:commandLink value="#{student.studentid}" action="search-response">
+                <f:setPropertyActionListener value="#{student}" target="#{studentManagedBean.searchedStudent}"/>
+                </h:commandLink>
+            </p:column>
+
+            <p:column >
+                <f:facet name="header"><h:outputText value="First Name"/></f:facet>
+                <h:outputText value="#{student.firstname}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header"><h:outputText value="Last Name"/></f:facet>
+                <h:outputText value="#{student.lastname}"/>
+            </p:column>
+        
+            <p:column>
+                <f:facet name="header"><h:outputText value="Address"/></f:facet>
+                <h:outputText value="#{student.address}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header"><h:outputText value="Grade"/></f:facet>
+                <h:outputText value="#{student.grade}"/>
+            </p:column>
+
+            <p:column>
+                <f:facet name="header"><h:outputText value="Gender"/></f:facet>
+                <h:outputText value="#{student.gender}"/>
+            </p:column>
+        
+        </p:dataTable>
+        </center>
+    </h:form>
+    </h:body>
+</html>
+

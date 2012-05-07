@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"  >
+    <h:head>
+        <title>Add Student Details</title>
+    </h:head>
+    
+    <h:body>
+       <h:form>
+       <h:commandLink value="Home" action="index" immediate="true"/>
+       <h:outputText value="&#160;&#160;&#160;"/>       
+       <h:commandLink value="View Student" action="view-student" immediate="true"/>
+       <h:outputText value="&#160;&#160;&#160;"/>   
+       <h:commandLink value="Search Student" action="search-student" immediate="true"/> 
+       <h:outputText value="&#160;&#160;&#160;"/> 
+       <h:commandLink value="Update Student" action="search-student" immediate="true"/> 
+       <h:outputText value="&#160;&#160;&#160;"/><br/>
+          
+      <center>
+            <h1>Student Register</h1>           
+
+            <h:message for="#{null}" infoStyle="color: green;" errorStyle="color: red;" />
+
+            <h:panelGrid columns="3" >
+                
+                <h:outputText value="First Name :"/>
+                <h:inputText id="firstname" size="22" value="#{studentManagedBean.insertedStudent.firstname}" required="true" requiredMessage="Validation Error: Value is required!" />
+                <h:message for="firstname" errorStyle="color: red;" infoStyle="color: green;" />
+
+                <h:outputText value="Last Name&#160; :"/>
+                <h:inputText id="lastname" size="22" value="#{studentManagedBean.insertedStudent.lastname}" required="true" requiredMessage="Validation Error: Value is required!"/>
+                <h:message for="lastname" errorStyle="color: red;" infoStyle="color: green;" />
+
+                <h:outputText value="Address &#160;&#160;&#160;&#160;:"/>
+                <h:inputTextarea id="address"  value="#{studentManagedBean.insertedStudent.address}" required="true" requiredMessage="Validation Error: Value is required!"/>
+                <h:message for="address" errorStyle="color: red;" infoStyle="color: green;" />
+
+                <h:outputText value="Grade&#160;&#160;&#160;&#160;&#160;&#160; &#160;:"/>
+                <h:selectOneMenu id="grade" value="#{studentManagedBean.insertedStudent.grade}">
+                    <f:selectItem itemValue="1" itemLabel="1"/>
+                    <f:selectItem itemValue="2" itemLabel="2"/>
+                    <f:selectItem itemValue="3" itemLabel="3"/>
+                    <f:selectItem itemValue="4" itemLabel="4"/>
+                    <f:selectItem itemValue="5" itemLabel="5"/>
+                    <f:selectItem itemValue="6" itemLabel="6"/>
+                    <f:selectItem itemValue="7" itemLabel="7"/>
+                    <f:selectItem itemValue="8" itemLabel="8"/>
+                    <f:selectItem itemValue="9" itemLabel="9"/>
+                    <f:selectItem itemValue="10" itemLabel="10"/>
+                    <f:selectItem itemValue="11" itemLabel="11"/>
+                    <f:selectItem itemValue="12" itemLabel="12"/>
+                    <f:selectItem itemValue="13" itemLabel="13"/>
+                </h:selectOneMenu>
+                <h:outputText value="&#160;"/>
+
+                <h:outputText value="Gender &#160;&#160;&#160;&#160;&#160;:"/>
+                <h:selectOneMenu id="gender" value="#{studentManagedBean.insertedStudent.gender}" >
+                    <f:selectItem itemValue="Male" itemLabel="Male"/>
+                    <f:selectItem itemValue="Female" itemLabel="Female"/>
+                </h:selectOneMenu>
+                <h:outputText value="&#160;"/>
+             
+            </h:panelGrid>
+            
+              <br/>
+            
+            <h:commandButton value="Register" actionListener="#{studentManagedBean.insertStudent}"/>
+            <h:outputText value="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"/>            
+            <h:commandButton value="Reset" type="reset"/>
+            
+       </center>
+    </h:form>
+    </h:body>
+</html>
+

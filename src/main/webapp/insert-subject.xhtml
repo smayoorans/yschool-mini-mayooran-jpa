@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" >
+    <h:head>
+        <title>Insert Subject</title>
+    </h:head>
+    <h:body>
+       <h:form>
+       <h:commandLink value="Home" action="index" immediate="true"/>
+       <h:outputText value="&#160;&#160;&#160;"/>       
+       <h:commandLink value="View Subject" action="view-subject" immediate="true"/>
+       <h:outputText value="&#160;&#160;&#160;"/>   
+       <h:commandLink value="Search Subject" action="search-subject" immediate="true"/> 
+       <h:outputText value="&#160;&#160;&#160;"/> 
+       <h:commandLink value="Update Subject" action="serach-subject" immediate="true"/> 
+       <h:outputText value="&#160;&#160;&#160;"/><br/>
+          
+      <center>
+            <h1>Subject Register</h1>           
+
+            <h:message for="#{null}" infoStyle="color: green;" errorStyle="color: red;" />
+
+            <h:panelGrid columns="3" >
+                
+                <h:outputText value="Subject Name :"/>
+                <h:inputText id="subjectname" size="22" value="#{subjectManagedBean.insertedSubject.subjectname}" required="true" requiredMessage="Validation Error: Value is required!" />
+                <h:message for="firstname" errorStyle="color: red;" infoStyle="color: green;" />
+
+                <h:outputText value="Subject Teacher&#160; :"/>
+                <h:inputText id="subjectteacher" size="22" value="#{subjectManagedBean.insertedSubject.subjectteacher}" required="true" requiredMessage="Validation Error: Value is required!"/>
+                <h:message for="subjectteacher" errorStyle="color: red;" infoStyle="color: green;" />
+        
+            </h:panelGrid>            
+              <br/>
+              
+            <h:commandButton value="Register" actionListener="#{subjectManagedBean.insertSubject}"/>
+            <h:outputText value="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;"/>            
+            <h:commandButton value="Reset" type="reset"/>
+            
+       </center>
+    </h:form>
+    </h:body>
+</html>
+
